@@ -1,6 +1,7 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component} from '@angular/core';
 import {NavController, NavParams, Tabs} from 'ionic-angular';
 import {Storage} from '@ionic/storage';
+import {HomePage} from '../home/home';
 
 /**
  * Generated class for the SettingsPage page.

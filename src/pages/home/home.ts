@@ -18,7 +18,6 @@ export class HomePage {
   }
 
   ionViewWillEnter() {
-    this.navCtrl.setRoot(HomePage);
     this.loadWeather();
   }
 
@@ -30,6 +29,7 @@ export class HomePage {
       .then(value => {
 
         if (value) {
+          console.log(`City in storage ${value}`);
           this.city = value;
         } else {
           this.city = 'Esbjerg'
