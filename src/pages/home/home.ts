@@ -18,6 +18,14 @@ export class HomePage {
   }
 
   ionViewWillEnter() {
+    this.navCtrl.setRoot(HomePage);
+    this.loadWeather();
+  }
+
+  /**
+   * Load weather from city in local storage
+   */
+  public loadWeather() {
     this.storage.get('city')
       .then(value => {
 
@@ -27,8 +35,12 @@ export class HomePage {
           this.city = 'Esbjerg'
         }
 
-        this.weatherData = this.weatherProvider.getWeather(this.city);
+        this.weatherProvider.getWeather(this.city)
+          .subscribe(result => {
+            // Left for reading weather data
+            console.log('Weather Data: ', result);
+            this.weatherData = result as WeatherData
+          });
       });
   }
-
 }

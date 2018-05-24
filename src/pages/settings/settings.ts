@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {NavController, NavParams} from 'ionic-angular';
+import {Component, ViewChild} from '@angular/core';
+import {NavController, NavParams, Tabs} from 'ionic-angular';
 import {Storage} from '@ionic/storage';
 
 /**
@@ -18,7 +18,8 @@ export class SettingsPage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              private storage: Storage) {
+              private storage: Storage,
+              private tabs: Tabs) {
   }
 
   ionViewDidLoad() {
@@ -33,9 +34,11 @@ export class SettingsPage {
   }
 
   saveForm() {
+    console.log('City is now', this.city);
     this.storage.set('city', this.city)
       .then(value => {
         this.city = value;
+        this.tabs.select(0)
       });
   }
 }

@@ -7,8 +7,8 @@
 <ion-content padding class="bg">
   <ion-grid *ngIf="weatherData">
     <ion-row>
-      <ion-col width-50 offset-25>
-        <h2 class="location">{{weatherData.location}}</h2>
+      <ion-col>
+        <h2 class="location">{{weatherData.name}}</h2>
         <div class="icon"></div>
         <h3 class="desc">{{weatherData.weather[0].description}}</h3>
         <h1 class="temp">{{weatherData.main.temp}}</h1>
@@ -25,6 +25,16 @@
           </ion-item>
         </ion-list>
       </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col>
+        <div align="center">
+          <button ion-button
+                  class="greenAction" (click)="loadWeather()">Reload</button>
+        </div>
+      </ion-col>
+      <ion-col></ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

@@ -1,5 +1,5 @@
 export class WeatherData {
-  location: string;
+  name: string;
   weather: Weather[];
   main: Main;
 }
